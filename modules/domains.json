@@ -1,0 +1,4 @@
+{
+  "Core": ["cloudcode-pa.googleapis.com", "daily-cloudcode-pa.googleapis.com", "antigravity-unleash.goog", "generativelanguage.googleapis.com"],
+  "Login": ["www.googleapis.com", "play.googleapis.com", "lh3.googleusercontent.com"]
+}

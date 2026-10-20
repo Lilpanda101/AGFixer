@@ -1,0 +1,263 @@
+{
+  "version": "1.10.8",
+  "distribution": "organized-user-release",
+  "algorithm": "SHA-256",
+  "scope": "All payload files except FILE-MANIFEST.json",
+  "entries": [
+    {
+      "path": "README.md",
+      "bytes": 17619,
+      "sha256": "37c013c6f7c9be23021de56aadfc9b822b49085999ddcf0aefbe275747eadbba"
+    },
+    {
+      "path": "modules/BUILD-VERIFICATION.json",
+      "bytes": 24775,
+      "sha256": "c3adf840595534d48607d19613ec8ffd416a844c10acb0f5d2588b991811a659"
+    },
+    {
+      "path": "modules/CHANGELOG.md",
+      "bytes": 38105,
+      "sha256": "169379ab27b0a309fd815607c1869c4302586df68327df779c8303f38789b56c"
+    },
+    {
+      "path": "modules/COMMUNITY-NOTES.md",
+      "bytes": 13275,
+      "sha256": "d6579729a322685ebcf0b8600cb21ae6d6954045883059616f20c733e73de439"
+    },
+    {
+      "path": "modules/CONFIGS.md",
+      "bytes": 14599,
+      "sha256": "7376d0bbea0438d90f49b7e2d3903a3bcef7c807bab64e5db10223116f425df6"
+    },
+    {
+      "path": "modules/CONNECTIONS.md",
+      "bytes": 8781,
+      "sha256": "559ce195baf7f1f79861f2cd89f484633a88415cd6e1fa57a61924cbafd6229f"
+    },
+    {
+      "path": "modules/REPAIR.md",
+      "bytes": 12863,
+      "sha256": "906518e9bede25ac860e4171d3b85e719208243d51dec11a37dfc27202765779"
+    },
+    {
+      "path": "modules/TLS-Probe.ps1",
+      "bytes": 17979,
+      "sha256": "5d108ae5266fa8c65d8ec33fc239d2ecc4897505c6292585171597abc9966eef"
+    },
+    {
+      "path": "modules/VPN-CLIENTS.md",
+      "bytes": 7111,
+      "sha256": "0eab382e2ee44ffa9a9b0f4907a151cfb04fb99e3375677fe2b3b1c1c8252160"
+    },
+    {
+      "path": "modules/ag-tune.ps1",
+      "bytes": 6078,
+      "sha256": "496df214cb124b6673b82b604d3bd0cd273cc5ef0484b4bc74f0a926e443c5ad"
+    },
+    {
+      "path": "modules/analyze-report.ps1",
+      "bytes": 571,
+      "sha256": "906f735e22d03c98e72b8adc30473d127978d8141b90564ed08500b48ca03886"
+    },
+    {
+      "path": "modules/audit-view.ps1",
+      "bytes": 19519,
+      "sha256": "865623fad8f9416c9f6e1b39097a1785a8fc1175ae164d286e323b5821409c98"
+    },
+    {
+      "path": "modules/builds.ps1",
+      "bytes": 31823,
+      "sha256": "7908dd1f9b7a6328619d348c38efa3caa8c17b6ec53397b8128b8057b031ec2c"
+    },
+    {
+      "path": "modules/common.ps1",
+      "bytes": 28499,
+      "sha256": "462df08ed3642dcb7d1db0a43b690946519375d7ecf7db5490c1572470037871"
+    },
+    {
+      "path": "modules/config-wizard.ps1",
+      "bytes": 6995,
+      "sha256": "5af23348b50a67e5cf44edc5a895fcd8c56992e3338447f8d99f99df98dc09e4"
+    },
+    {
+      "path": "modules/connection-path.ps1",
+      "bytes": 28938,
+      "sha256": "dfee41a2fe0a822972ce42befce1f043c3800c7a60896dc7a3dacbbeba0d5519"
+    },
+    {
+      "path": "modules/console-input.ps1",
+      "bytes": 2371,
+      "sha256": "8eae2b1a27e5d1655e2a9538f76d1d5dc17d680b97547f44d49dfb45855025d9"
+    },
+    {
+      "path": "modules/doctor-advanced.ps1",
+      "bytes": 6364,
+      "sha256": "89999e601551cd18dcd599a26ea17928477f8b512601da21b3c87b1a1461415b"
+    },
+    {
+      "path": "modules/doctor.ps1",
+      "bytes": 7914,
+      "sha256": "4ea52f58b03eefaeca9746adc591f45fce91ff07e4acb1d168196e6997162ccc"
+    },
+    {
+      "path": "modules/domains.json",
+      "bytes": 239,
+      "sha256": "e5b34c63dd3a233d876eddc1e36de312615bd1212708cde968891b6dbec50e17"
+    },
+    {
+      "path": "modules/express-analysis.ps1",
+      "bytes": 6270,
+      "sha256": "72efe3f064c545419e3f428375cf635024f6d68e248eead0a3b2888bd37dd510"
+    },
+    {
+      "path": "modules/express-dashboard.ps1",
+      "bytes": 2912,
+      "sha256": "439e14c0ae8bc71c82bafa35974d6608a3bcf91f707a05b26bb87990e8dd594c"
+    },
+    {
+      "path": "modules/express-verdict.ps1",
+      "bytes": 8494,
+      "sha256": "1f88f965eae06b79fe2f1fa3d5541f9042890d4f7defa2b138b9529dbfe472fb"
+    },
+    {
+      "path": "modules/guide-menu.ps1",
+      "bytes": 2253,
+      "sha256": "7b5584657ee78c99a21ad6eca42ae86c90c111045053be679593ce61aa335809"
+    },
+    {
+      "path": "modules/installation-paths.ps1",
+      "bytes": 11295,
+      "sha256": "690108d9d621a697dbea4a965fca61bbe0977ec067d809b4530b811dc69ecfa9"
+    },
+    {
+      "path": "modules/launch.ps1",
+      "bytes": 450,
+      "sha256": "7aef2f1933a9a77bbcb68b8f9a0b85a96866cc14d11244bb2d92bc83acc2d3c5"
+    },
+    {
+      "path": "modules/local-audit.ps1",
+      "bytes": 14067,
+      "sha256": "76a4f483b46e953458a7acc25fe302c947feeda0b8d29fb58d0bcf05b996c856"
+    },
+    {
+      "path": "modules/menus.ps1",
+      "bytes": 12368,
+      "sha256": "387aad32cacc91d245b5121f8cb5d728dbfe43182e1212bf34dcc5f9ddea03a7"
+    },
+    {
+      "path": "modules/probe-connection.ps1",
+      "bytes": 432,
+      "sha256": "add7ec86bf3c161735aac835706b9feb5c48b19e97ec9619cac7dfc5ae952f9e"
+    },
+    {
+      "path": "modules/probe-zapret.ps1",
+      "bytes": 15188,
+      "sha256": "26a209f52bbaba96d903a1d38b3b32c72473b8fcc82b35b7b03205143c4b6b35"
+    },
+    {
+      "path": "modules/repair-engine.ps1",
+      "bytes": 27843,
+      "sha256": "ec579620627fa95dcb282d0e1f24810a62a21a2d67028f2c0932b20207af886f"
+    },
+    {
+      "path": "modules/repair-safe.ps1",
+      "bytes": 4956,
+      "sha256": "970a36740d78a1e4352fb95d49f82dbcf944d7379833c9eb44c0ce4580a4716c"
+    },
+    {
+      "path": "modules/report-analysis.ps1",
+      "bytes": 22603,
+      "sha256": "8e92a495d97fe9991aab3d0606066d4c028a89a996d5b39a7a5aa3fbfec8214b"
+    },
+    {
+      "path": "modules/report-input.ps1",
+      "bytes": 6708,
+      "sha256": "d040cd749916a690179f3a4566b6b8111b32b4d040bc018213c53e84331920a3"
+    },
+    {
+      "path": "modules/report-view.ps1",
+      "bytes": 5728,
+      "sha256": "936c94e17d8f2a31017da95ee11a334ecdcf65ba7cfdd020d1ace9a03f161cbe"
+    },
+    {
+      "path": "modules/route-selection.ps1",
+      "bytes": 8449,
+      "sha256": "3deceecca00656116e4f41eb860be7b25ab1013f25a783a91bf6434d9fa24f1c"
+    },
+    {
+      "path": "modules/scenarios.json",
+      "bytes": 49367,
+      "sha256": "6a2fc5e1c0178a3338e8e91b5fae20f1557900d2ed41ef093b1be7d3f2f8e591"
+    },
+    {
+      "path": "modules/show-scenarios.ps1",
+      "bytes": 2431,
+      "sha256": "fb44a3ab5050eeeb96ee0948d0eabf050c0f38ce42d2d6461a044eb6e7b4d330"
+    },
+    {
+      "path": "modules/smart-diagnostics.ps1",
+      "bytes": 17241,
+      "sha256": "942b32f58be0008d734a463df344863d40deb43bb990f59bfdf824badb52cf06"
+    },
+    {
+      "path": "modules/smart-home.ps1",
+      "bytes": 9274,
+      "sha256": "700be91120ada90f1888e3cce45becfab59e07524105c2fc600a0e6adb51c196"
+    },
+    {
+      "path": "modules/smart-setup.ps1",
+      "bytes": 13808,
+      "sha256": "95dec4a8253c187c6ed43ae975d9e23db4e450e30fd1a302af1169337bb913de"
+    },
+    {
+      "path": "modules/startup.ps1",
+      "bytes": 4045,
+      "sha256": "8bc5e85165db8be9e7b2a57c30708742ba3d7ed586c1d0ec9f48f8860af3b2dc"
+    },
+    {
+      "path": "modules/state-tools.ps1",
+      "bytes": 18996,
+      "sha256": "1f0c1eb6250472d1a04239c175f009eb8e72c0fdb91bb18494762ff317b0c6fc"
+    },
+    {
+      "path": "modules/support-bundle.ps1",
+      "bytes": 7530,
+      "sha256": "4cf3110562275c0b646551b1bc1f3b2070feb1825ceaf3daf83883e5a4aa36e4"
+    },
+    {
+      "path": "modules/system-status.ps1",
+      "bytes": 9899,
+      "sha256": "364c4355569dc5324dd4d501541bbd16d4ae5963dc1dc5c95af9fc6e1f4eafc2"
+    },
+    {
+      "path": "modules/terminal-ui.ps1",
+      "bytes": 16927,
+      "sha256": "8ec80b79e8b7420f1fadad22af868accfa9e6083ed8da814dd2e6501f12eb70f"
+    },
+    {
+      "path": "modules/ui.ps1",
+      "bytes": 13391,
+      "sha256": "d6dd436962a75497ae8032332dd622353df9f69b44b53ff4beb6379423f88714"
+    },
+    {
+      "path": "modules/updates.ps1",
+      "bytes": 8033,
+      "sha256": "73c9e04faedfac2035504fee97b5a0c94f5a25a6e89e027cccd0a35614975825"
+    },
+    {
+      "path": "modules/vpn-clients.ps1",
+      "bytes": 32822,
+      "sha256": "37d3a8d6ad1fe8fdc3cec7728fa111a69eb09256dfb3a1c8f6562dbc44ca8cec"
+    },
+    {
+      "path": "modules/zapret-lists.ps1",
+      "bytes": 13539,
+      "sha256": "c4264bed2d01f5731a371dac01fade09a6ceed271a07d2eafbed85c41712a8ba"
+    },
+    {
+      "path": "run.bat",
+      "bytes": 295,
+      "sha256": "76898efc0216912387ae9b2d265f3b04f105ce0762a754ded1e24e4e748518d9"
+    }
+  ]
+}
