@@ -1,29 +1,33 @@
 <div align="center">
 
-# 🛠️ AGFixer
+# 🛠️ AGFixer (Linux Edition)
 
 ### Диагностика и ремонт Antigravity без лишней возни
 
-**Antigravity Unlocker · Zapret · VPN / TUN · HTTP / SOCKS**
+**Antigravity Unlocker · Zapret · SmartDNS · Proxies**
 
-[![Version](https://img.shields.io/badge/version-2.0.0-9b1c31)](https://github.com/txmu1/AGFixer/releases)
-![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux-0078D6)
-![Language](https://img.shields.io/badge/PowerShell%20%7C%20Python%203-5391FE)
+[![Version](https://img.shields.io/badge/version-2.0.0-9b1c31)](https://github.com/Lilpanda101/AGFixer/releases)
+![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20Windows-0078D6)
+![Language](https://img.shields.io/badge/Python%203%20%7C%20PowerShell-5391FE)
 ![Interface](https://img.shields.io/badge/interface-RU-00A6A6)
 ![Status](https://img.shields.io/badge/status-Release-brightgreen)
 
-**Разбор отчётов, поиск конфликтов Windows и Linux, настройка Unlocker под свой VPN, Zapret, прокси и понятный план исправлений.**
+**Порт и расширенная адаптация утилиты AGFixer для Linux (Arch, CachyOS, Ubuntu, Debian, Fedora).**  
+Оригинальный проект под Windows: [txmu1/AGFixer](https://github.com/txmu1/AGFixer).
 
-[**📦 Скачать**](https://github.com/txmu1/AGFixer/releases/latest)
-&nbsp;•&nbsp;
 [Быстрый запуск](#быстрый-запуск)
 &nbsp;•&nbsp;
 [Возможности](#возможности)
 &nbsp;•&nbsp;
-[Управление](#управление)
-&nbsp;•&nbsp;
-[Сообщить об ошибке](https://github.com/txmu1/AGFixer/issues)
+[Оригинальный проект txmu1](https://github.com/txmu1/AGFixer)
 </div>
+
+---
+
+> 🐧 **Linux Fork / Порт**:
+> Этот репозиторий содержит Linux-версию (`agfixer_linux.py` и `run.sh`), адаптированную под работу с Zapret (nfqws/nftables), AGUnlocker, SmartDNS и прокси на Linux-дистрибутивах.
+> Автор оригинального AGFixer под Windows — **[txmu1](https://github.com/txmu1/AGFixer)**.
+
 
 ---
 
@@ -33,6 +37,7 @@
 
 | Проект | Автор / команда | Для чего использовался |
 | --- | --- | --- |
+| [AGFixer (Windows Original)](https://github.com/txmu1/AGFixer) | **txmu1** | Оригинальная концепция, логика диагностики и сценариев для Windows |
 | [Antigravity Unlocker](https://github.com/confeden/Antigravity) | **confeden** | Изучение маршрутов, штрафных таймеров и поведения Unlocker |
 | [zapret-discord-youtube](https://github.com/Flowseal/zapret-discord-youtube) | **Flowseal** | Изучение структуры Zapret, службы, стратегий и списков доменов |
 | [FixNovaAntigtavity](https://github.com/NickDevo-o/FixNovaAntigtavity) | **NickDevo-o** | Материалы по настройке Antigravity, сценариям подключения и диагностике |
