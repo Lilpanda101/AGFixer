@@ -85,7 +85,7 @@ AGFixer — самостоятельная утилита. Упоминание 
 1. Скачайте архив релиза или клонируйте репозиторий:
    ```bash
    git clone https://github.com/txmu1/AGFixer.git
-   cd AGFixer
+   cd AGFixer/linux
    ```
 2. Сделайте скрипт запуска исполняемым:
    ```bash
