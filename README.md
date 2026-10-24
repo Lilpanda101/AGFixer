@@ -6,9 +6,10 @@
 
 **Antigravity Unlocker · Zapret · VPN / TUN · HTTP / SOCKS**
 
-[![Version](https://img.shields.io/badge/version-1.10.8-9b1c31)](https://github.com/txmu1/AGFixer/releases)
-![Platform](https://img.shields.io/badge/platform-Windows%2010%20%7C%2011-0078D6)
+[![Version](https://img.shields.io/badge/version-2.0.0-9b1c31)](https://github.com/txmu1/AGFixer/releases)
+![Platform](https://img.shields.io/badge/platform-Windows%2010%20%7C%2011%20%7C%20Linux-0078D6)
 ![PowerShell](https://img.shields.io/badge/PowerShell-5.1-5391FE)
+![Python](https://img.shields.io/badge/Python-3.8+-3776AB)
 ![Interface](https://img.shields.io/badge/interface-RU-00A6A6)
 ![Status](https://img.shields.io/badge/status-предварительный%20релиз-orange)
 
@@ -36,6 +37,7 @@
 | [Antigravity Unlocker](https://github.com/confeden/Antigravity) | **confeden** | Изучение маршрутов, штрафных таймеров и поведения Unlocker |
 | [zapret-discord-youtube](https://github.com/Flowseal/zapret-discord-youtube) | **Flowseal** | Изучение структуры Zapret, службы, стратегий и списков доменов |
 | [FixNovaAntigtavity](https://github.com/NickDevo-o/FixNovaAntigtavity) | **NickDevo-o** | Материалы по настройке Antigravity, сценариям подключения и диагностике |
+| [AGFixer Linux Fork](https://github.com/Lilpanda101/AGFixer) | **Lilpanda101** | Портирование и адаптация логики AGFixer под Linux (systemd, nftables/iptables, SmartDNS) |
 
 Для клиентских инструкций также использовались официальные материалы:
 
@@ -69,14 +71,36 @@ AGFixer — самостоятельная утилита. Упоминание 
 
 ## Быстрый запуск
 
+### 🪟 Windows
 1. Откройте [страницу релизов](https://github.com/txmu1/AGFixer/releases/latest).
 2. Скачайте ZIP-архив AGFixer из раздела **Assets**.
 3. **Полностью распакуйте** архив в отдельную папку.
-4. Запустите **`run.bat`**.
-5. Подтвердите запрос прав администратора.
-6. Выберите нужное действие в главном меню.
+4. Запустите **`run.bat`** от имени администратора.
+5. Выберите нужное действие в главном меню.
 
-**Не запускайте программу прямо из архива.** Все файлы сборки должны находиться вместе — переносить один `run.bat` недостаточно.
+> **Не запускайте программу прямо из архива.** Все файлы сборки должны находиться вместе — переносить один `run.bat` недостаточно.
+
+### 🐧 Linux
+1. Скачайте архив релиза или клонируйте репозиторий:
+   ```bash
+   git clone https://github.com/txmu1/AGFixer.git
+   cd AGFixer
+   ```
+2. Сделайте скрипт запуска исполняемым:
+   ```bash
+   chmod +x run.sh
+   ./run.sh
+   ```
+   Либо запустите напрямую через Python:
+   ```bash
+   python3 agfixer_linux.py
+   ```
+3. Поддерживаемые флаги командной строки:
+   - `./run.sh --test` — быстрая проверка доступности серверов Antigravity
+   - `./run.sh --fix` — автоматический подбор и применение оптимального фикса
+   - `./run.sh --doctor` — углублённый аудит сети и служб (nftables, iptables, SmartDNS, systemd)
+   - `./run.sh --rollback` — мгновенный откат применённых изменений
+   - `./run.sh --mode <zapret|direct|unlocker|smartdns>` — переключение рабочего режима
 
 При обновлении распаковывайте новую версию в отдельную папку, а не поверх работающей старой копии.
 
