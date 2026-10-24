@@ -6,13 +6,13 @@
 
 **Antigravity Unlocker · Zapret · VPN / TUN · HTTP / SOCKS**
 
-[![Version](https://img.shields.io/badge/version-1.10.8-9b1c31)](https://github.com/txmu1/AGFixer/releases)
-![Platform](https://img.shields.io/badge/platform-Windows%2010%20%7C%2011-0078D6)
-![PowerShell](https://img.shields.io/badge/PowerShell-5.1-5391FE)
+[![Version](https://img.shields.io/badge/version-2.0.0-9b1c31)](https://github.com/txmu1/AGFixer/releases)
+![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux-0078D6)
+![Language](https://img.shields.io/badge/PowerShell%20%7C%20Python%203-5391FE)
 ![Interface](https://img.shields.io/badge/interface-RU-00A6A6)
-![Status](https://img.shields.io/badge/status-предварительный%20релиз-orange)
+![Status](https://img.shields.io/badge/status-Release-brightgreen)
 
-**Разбор отчётов, поиск конфликтов Windows, настройка Unlocker под свой VPN, Zapret, прокси и понятный план исправлений.**
+**Разбор отчётов, поиск конфликтов Windows и Linux, настройка Unlocker под свой VPN, Zapret, прокси и понятный план исправлений.**
 
 [**📦 Скачать**](https://github.com/txmu1/AGFixer/releases/latest)
 &nbsp;•&nbsp;
@@ -69,16 +69,32 @@ AGFixer — самостоятельная утилита. Упоминание 
 
 ## Быстрый запуск
 
+### 🪟 Windows:
 1. Откройте [страницу релизов](https://github.com/txmu1/AGFixer/releases/latest).
 2. Скачайте ZIP-архив AGFixer из раздела **Assets**.
 3. **Полностью распакуйте** архив в отдельную папку.
-4. Запустите **`run.bat`**.
-5. Подтвердите запрос прав администратора.
-6. Выберите нужное действие в главном меню.
+4. Запустите **`run.bat`** от имени администратора.
+5. Выберите нужное действие в главном меню.
 
-**Не запускайте программу прямо из архива.** Все файлы сборки должны находиться вместе — переносить один `run.bat` недостаточно.
+> **Не запускайте программу прямо из архива.** Все файлы сборки должны находиться вместе.
 
-При обновлении распаковывайте новую версию в отдельную папку, а не поверх работающей старой копии.
+### 🐧 Linux (Arch / CachyOS / Ubuntu / Debian / Fedora):
+1. Склонируйте репозиторий или скачайте `run.sh` и `agfixer_linux.py`:
+   ```bash
+   git clone https://github.com/txmu1/AGFixer.git
+   cd AGFixer
+   chmod +x run.sh agfixer_linux.py
+   ```
+2. Запустите нужный режим:
+   ```bash
+   ./run.sh            # Интерактивная диагностика Zapret, Unlocker, DNS и портов
+   ./run.sh --fix      # Автоматический безопасный ремонт (с бэкапом settings.json)
+   ./run.sh --test     # Быстрый тест доступности Google CloudCode и AI-модели
+   ./run.sh --doctor   # Потоковый анализ журналов и диагностика сбоев
+   ./run.sh --rollback # Откат настроек на последнюю рабочую копию
+   ./run.sh --mode zapret # Переключение в режим чистого Zapret (SmartDNS)
+   ./run.sh --mode clash  # Переключение в режим Zapret + собственный прокси
+   ```
 
 ## Возможности
 
