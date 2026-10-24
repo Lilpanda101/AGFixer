@@ -6,7 +6,8 @@
 
 **Antigravity Unlocker · Zapret · VPN / TUN · HTTP / SOCKS**
 
-[![Version](https://img.shields.io/badge/version-2.0.0-9b1c31)](https://github.com/txmu1/AGFixer/releases)
+[![Windows Version](https://img.shields.io/badge/Windows-v1.10.8-0078D6?logo=windows&logoColor=white)](https://github.com/txmu1/AGFixer/releases)
+[![Linux Version](https://img.shields.io/badge/Linux-v2.0.0-FCC624?logo=linux&logoColor=black)](https://github.com/txmu1/AGFixer/releases)
 ![Platform](https://img.shields.io/badge/platform-Windows%2010%20%7C%2011%20%7C%20Linux-0078D6)
 ![PowerShell](https://img.shields.io/badge/PowerShell-5.1-5391FE)
 ![Python](https://img.shields.io/badge/Python-3.8+-3776AB)
