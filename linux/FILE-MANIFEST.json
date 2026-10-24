@@ -1,0 +1,53 @@
+{
+  "version": "2.1.0-rc1",
+  "distribution": "platform-rc1",
+  "algorithm": "SHA-256",
+  "scope": "All payload files except FILE-MANIFEST.json",
+  "entries": [
+    {
+      "path": "BUILD-VERIFICATION.json",
+      "bytes": 5498,
+      "sha256": "dd5108cab6ded281b703e73285d0dfb85abbdbb493b3db46aa52bd7453dd665d"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1062,
+      "sha256": "9a160a9acd7dfd60c9c827c4bb0215df2bd24a776d15c1508d369b954f5f8db0"
+    },
+    {
+      "path": "README.md",
+      "bytes": 9743,
+      "sha256": "3155ab338ee0c13c4b78c8364f2ce80a3fdf2dd1309e4a5e87b48873a9712810"
+    },
+    {
+      "path": "RELEASE-NOTES.txt",
+      "bytes": 3599,
+      "sha256": "c80af5c828c391a134da6f0ad1c760f238faeec76a2a2402db0ab74515a13055"
+    },
+    {
+      "path": "agfixer_linux.py",
+      "bytes": 14811,
+      "sha256": "ba8b8ba769832d1a3ae39f9db7c4f48f98c1efec165f5e1973122507b6d28e7f"
+    },
+    {
+      "path": "core.py",
+      "bytes": 15120,
+      "sha256": "d39941937c5e6a526d2529c67f8ae9c1da6c62c3ccb6b7624918f122280ba0a6"
+    },
+    {
+      "path": "run.sh",
+      "bytes": 324,
+      "sha256": "8d556f08208d86016e5449203717a4abf3ef7acb26210b554df1ab1b1d841701"
+    },
+    {
+      "path": "tests/test_safety.py",
+      "bytes": 9774,
+      "sha256": "8359e29e9db56ca7bf38d94ab840d0e81e8b285030538c4cdc83a585cebc6445"
+    },
+    {
+      "path": "zapret_support.py",
+      "bytes": 7280,
+      "sha256": "15aaf015feb09f23f785a4f7583525ed9c390680a5edafb7e353040600620f03"
+    }
+  ]
+}

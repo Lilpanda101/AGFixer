@@ -1,0 +1,207 @@
+{
+  "status": "RC-OfflineChecksPassed-NativeAcceptancePending",
+  "source_commit": "68547bc67e7d9ceffcfb0c1821a9ff045a7a4b79",
+  "windows_version": "1.11.0-rc1",
+  "linux_version": "2.1.0-rc1",
+  "source_tree_sha256": "7b8f0c08fee28855453a21386c3a1abf25a495473d2ab0bc0defe415b04c1fae",
+  "fingerprint_scope": "PowerShell runtime/tests, Linux Python runtime/tests, both launchers; documentation and packaging script excluded",
+  "environment": {
+    "os": "Linux",
+    "powershell": "7.4.7",
+    "python": "3.13.14"
+  },
+  "windowsPowerShell51Tested": false,
+  "nativeWindowsTested": false,
+  "realWindowsServicesModified": false,
+  "realNfqueueTrafficTested": false,
+  "perDistributionInstallTested": false,
+  "githubCiExecuted": false,
+  "githubReleasePublished": false,
+  "windows_offline_suites": [
+    {
+      "suite": "SAFE-AUTO-REPORT-TESTS.ps1",
+      "exit": 0,
+      "seconds": 1.23,
+      "summary": [
+        "RESULT: 15 passed; 0 failed"
+      ]
+    },
+    {
+      "suite": "SAFE-COMPARISON-V9-TESTS.ps1",
+      "exit": 0,
+      "seconds": 6.56,
+      "summary": [
+        "RESULT: 32 passed; 0 failed"
+      ]
+    },
+    {
+      "suite": "SAFE-DIAGNOSTIC-FACTS-TESTS.ps1",
+      "exit": 0,
+      "seconds": 0.78,
+      "summary": [
+        "RESULT: 9 passed; 0 failed"
+      ]
+    },
+    {
+      "suite": "SAFE-EXTRA-UI-TESTS.ps1",
+      "exit": 0,
+      "seconds": 1.13,
+      "summary": [
+        "RESULT: all extra UI checks passed"
+      ]
+    },
+    {
+      "suite": "SAFE-NESTED-UI-TESTS.ps1",
+      "exit": 0,
+      "seconds": 0.9,
+      "summary": []
+    },
+    {
+      "suite": "SAFE-REGRESSION-TESTS.ps1",
+      "exit": 0,
+      "seconds": 1.08,
+      "summary": [
+        "RESULT: 11 passed; 0 failed"
+      ]
+    },
+    {
+      "suite": "SAFE-SHARED-UI-TESTS.ps1",
+      "exit": 0,
+      "seconds": 1.02,
+      "summary": [
+        "RESULT: 7 passed; 0 failed"
+      ]
+    },
+    {
+      "suite": "SAFE-STARTUP-WORKFLOW-TESTS.ps1",
+      "exit": 0,
+      "seconds": 1.1,
+      "summary": [
+        "RESULT: 27 passed; 0 failed"
+      ]
+    },
+    {
+      "suite": "SAFE-STRATEGY-DETECTION-TESTS.ps1",
+      "exit": 0,
+      "seconds": 2.81,
+      "summary": [
+        "RESULT: 35 passed; 0 failed"
+      ]
+    },
+    {
+      "suite": "SAFE-UI-TESTS.ps1",
+      "exit": 0,
+      "seconds": 1.64,
+      "summary": [
+        "RESULT: 6 groups passed"
+      ]
+    },
+    {
+      "suite": "SAFE-ZAPRET-ORDER-TESTS.ps1",
+      "exit": 0,
+      "seconds": 1.27,
+      "summary": [
+        "RESULT: 32 passed; 0 failed"
+      ]
+    },
+    {
+      "suite": "tests/SAFE-DIAGNOSTICS-V13-TESTS.ps1",
+      "exit": 0,
+      "seconds": 2.06,
+      "summary": [
+        "RESULT: 36 passed; 0 failed"
+      ]
+    },
+    {
+      "suite": "tests/SAFE-EVIDENCE-V11-TESTS.ps1",
+      "exit": 0,
+      "seconds": 2.41,
+      "summary": [
+        "RESULT: 54 passed; 0 failed"
+      ]
+    },
+    {
+      "suite": "tests/SAFE-FOOTER-LATENCY-V12-TESTS.ps1",
+      "exit": 0,
+      "seconds": 2.02,
+      "summary": [
+        "RESULT: 21 passed; 0 failed"
+      ]
+    },
+    {
+      "suite": "tests/SAFE-PLATFORMS-ZAPRET2-TESTS.ps1",
+      "exit": 0,
+      "seconds": 1.13,
+      "summary": [
+        "RESULT: 13 passed; 0 failed"
+      ]
+    }
+  ],
+  "linux_unittest": {
+    "tests": 32,
+    "passed": 32,
+    "failed": 0,
+    "systemCommandsMocked": true
+  },
+  "linux_cli_smoke": {
+    "version": true,
+    "help": true,
+    "doctorReadOnly": true,
+    "menuExit": true,
+    "shellSyntax": true,
+    "pyCompile": true
+  },
+  "linux_live_transport": {
+    "samples": [
+      {
+        "host": "daily-cloudcode-pa.googleapis.com",
+        "reachable": true,
+        "http": 404,
+        "latency_ms": 72.8,
+        "scope": "HTTPS HEAD transport only; model access unknown"
+      },
+      {
+        "host": "generativelanguage.googleapis.com",
+        "reachable": true,
+        "http": 404,
+        "latency_ms": 61.6,
+        "scope": "HTTPS HEAD transport only; model access unknown"
+      },
+      {
+        "host": "antigravity-unleash.goog",
+        "reachable": true,
+        "http": 404,
+        "latency_ms": 235.2,
+        "scope": "HTTPS HEAD transport only; model access unknown"
+      },
+      {
+        "host": "www.youtube.com",
+        "reachable": true,
+        "http": 200,
+        "latency_ms": 226.9,
+        "scope": "HTTPS HEAD transport only; model access unknown"
+      },
+      {
+        "host": "gateway.discord.gg",
+        "reachable": true,
+        "http": 404,
+        "latency_ms": 83.8,
+        "scope": "HTTPS HEAD transport only; model access unknown"
+      }
+    ],
+    "scope": "Agent computer current system route, not subscriber route. No account, model or NFQUEUE verification."
+  },
+  "references": {
+    "zapret2": "bol-van/zapret2@4a33055448ce5f4e7acc704e1fbe0d8a8a6aa08d",
+    "windowsBundle": "bol-van/zapret-win-bundle@de9795d71287fdb21cf8c20b8af1a09d0eb10ab2",
+    "unlocker": "confeden/Antigravity@7b824ea868fe268c8ecc60e2516a6c0ce520fe6b"
+  },
+  "limitations": [
+    "Windows Zapret2 automatic strategy handling limited to simple BAT/CMD and direct SCM service zapret",
+    "Nonstandard winws2 hostlists require manual preparation",
+    "Linux strategies/firewall/shell/Lua are not automatically rewritten or applied",
+    "Linux desktop report refresh occurs on menu entry/refresh, not while blocking in input",
+    "Hash rechecks are not a universal lock against external editors",
+    "Native target integration acceptance remains pending"
+  ]
+}
