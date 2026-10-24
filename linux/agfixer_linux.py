@@ -34,6 +34,7 @@ def user_only():
         raise ValueError('Настройки Unlocker меняйте от обычного пользователя, без sudo. Root допустим только для списков Zapret.')
 
 def collect():
+    user_only()
     result={'version':core.VERSION,'platform':'Linux','model_access':'unknown'}
     result['unlocker_service']=core.service_status()
     try:
@@ -103,8 +104,8 @@ def guides(mode):
     if mode in ('zapret','zapret2'):
         print('ZAPRET / ZAPRET2\n────────────────────')
         print('1. Установите рабочую стратегию по инструкции вашего Zapret. Для Zapret2 нужен nfqws2 и его Lua-файлы.')
-        print('2. Проверьте config: NFQWS2_ENABLE=1 (Zapret2), MODE_FILTER=hostlist/autohostlist и <HOSTLIST> в действующей стратегии.')
-        print('3. Добавьте домены в начало ipset/zapret-hosts-user.txt; проверьте исключения. Старые --dpi-desync не переводятся в Lua автоматически.')
+        print('2. Проверьте config: NFQWS2_ENABLE=1 (Zapret2), MODE_FILTER=hostlist/autohostlist и <HOSTLIST>/<HOSTLIST_NOAUTO> в действующей стратегии.')
+        print('3. Добавьте домены в начало используемого zapret-hosts-user.txt (обычно ipset/, но HOSTLIST_BASE может менять папку); проверьте исключения. Старые --dpi-desync не переводятся в Lua автоматически.')
         print('4. Перезапустите вашу службу Zapret. Не переключайте iptables/nftables вслепую: backend должен совпадать с установкой.')
         print('5. Выберите профиль Unlocker zapret2/zapret. Проверьте запрос модели после перезапуска Antigravity.')
     elif mode=='vpn':

@@ -4,6 +4,7 @@ import json
 import os
 from pathlib import Path
 import re
+import shlex
 import stat
 import time
 import uuid
@@ -27,13 +28,18 @@ def processes(proc=Path('/proc')):
 
 def argument_files(args,cwd):
     result=[];i=1
+    # Upstream treats the first @file/$file as an options file. Do not silently
+    # report an empty dependency list; parsing executable shell syntax is unsafe.
+    if len(args)>1 and args[1].startswith(('@','$')):
+        return [dict(option='config',path=args[1][1:],verified=False,
+                     error='Зависимости @/$ config не проверены; файл не выполнялся')]
     while i<len(args):
         token=args[i];i+=1
         if not token.startswith('--'):continue
         name,sep,value=token[2:].partition('=')
         if not sep and i<len(args) and not args[i].startswith('--'):value=args[i];i+=1
         file=None;gzip=False
-        if name in ('hostlist','hostlist-exclude','hostlist-auto','ipset','ipset-exclude'):file=value;gzip=True
+        if name in ('hostlist','hostlist-exclude','hostlist-auto','ipset','ipset-exclude'):file=value
         elif name=='lua-init' and value.startswith('@'):file=value[1:];gzip=True
         elif name=='blob':
             _,colon,value=value.partition(':')
@@ -94,15 +100,66 @@ def inspect(root=None):
     for p in running:p['files']=argument_files(p.pop('args'),p.pop('cwd'))
     return dict(processes=running,installations=installations,units=units,nfqueue_rules=queues,iptables_mangle_queues=ipt,firewall_note='Недоступно без прав/утилиты' if queues is None else 'Счётчики NFQUEUE не подтверждают работу модели и не устанавливают владельца правил')
 
+def standard_hostlist_base(text,root):
+    """Accept only a small, assignment-only shell subset, never evaluate it.
+
+    Ambiguous/dynamic configurations require manual inspection. shlex removes
+    comments and preserves quoted multiline values without executing expansion.
+    """
+    lexer=shlex.shlex(text,posix=True,punctuation_chars=';&|()<>')
+    lexer.whitespace_split=True
+    lexer.commenters='#'
+    values={}
+    relevant={'MODE_FILTER','HOSTLIST_BASE','ZAPRET_BASE','NFQWS_OPT','NFQWS2_OPT',
+              'NFQWS_ENABLE','NFQWS2_ENABLE'}
+    try:
+        for token in lexer:
+            match=re.fullmatch(r'([A-Za-z_][A-Za-z0-9_]*)=(.*)',token,re.S)
+            if not match:raise ValueError('Неоднозначный shell config: автоматическая запись запрещена')
+            key,value=match.groups()
+            if '$(' in value or '`' in value:
+                raise ValueError('Подстановка команд в config: проверьте конфигурацию вручную')
+            if key in relevant:
+                if key in values:raise ValueError('Повторное присваивание '+key+': проверьте config вручную')
+                values[key]=value
+    except ValueError as exc:
+        raise ValueError('Config не подтверждён для автоматической записи: '+str(exc)) from exc
+    if values.get('MODE_FILTER') not in ('hostlist','autohostlist'):
+        raise ValueError('Нужен явный MODE_FILTER=hostlist/autohostlist')
+    strategies=[key for key in ('NFQWS_OPT','NFQWS2_OPT') if values.get(key)]
+    if len(strategies)!=1:raise ValueError('Нужна одна явно заданная NFQWS_OPT/NFQWS2_OPT')
+    key=strategies[0];options=values[key]
+    if '$' in options or '`' in options:
+        raise ValueError('Динамическая стратегия: используемый hostlist не подтверждён')
+    if values.get(key.replace('_OPT','_ENABLE'),'1')!='1':
+        raise ValueError('Выбранный обработчик выключен в config')
+    if not {'<HOSTLIST>','<HOSTLIST_NOAUTO>'}.intersection(shlex.split(options,comments=True)):
+        raise ValueError('В стратегии нет отдельного <HOSTLIST>/<HOSTLIST_NOAUTO>')
+    declared=values.get('ZAPRET_BASE',str(root))
+    if declared!=str(root):raise ValueError('ZAPRET_BASE отличается от выбранной установки')
+    base=values.get('HOSTLIST_BASE','') or str(root/'ipset')
+    if '$' in base:
+        # shlex intentionally drops quoting; only this exact double-quoted
+        # expansion is supported. A single-quoted/escaped $ is literal in sh.
+        literal_expansion=re.search(
+            r'(?m)^\s*HOSTLIST_BASE="(\$(?:ZAPRET_BASE|\{ZAPRET_BASE\})/[^"$`\\\r\n]*)"\s*(?:#.*)?$',
+            text)
+        if not literal_expansion or literal_expansion.group(1)!=base:
+            raise ValueError('Неоднозначное раскрытие HOSTLIST_BASE: автоматическая запись запрещена')
+    base=base.replace('${ZAPRET_BASE}',str(root)).replace('$ZAPRET_BASE/',str(root)+'/')
+    if any(char in base for char in ('$','`','\n','\r','\x00')) or not Path(base).is_absolute():
+        raise ValueError('HOSTLIST_BASE не является подтверждённым абсолютным путём')
+    return Path(base)
+
 def hostlist_plan(root):
     root=Path(root).absolute()
     # Only standard hostlist: never guess which custom shell strategy is effective.
     config=root/'config';core.safe_write_path(config)
-    with config.open('rb') as f:text=f.read(1024*1024+1).decode(errors='replace')
-    if len(text)>1024*1024:raise ValueError('Слишком большой config')
-    if not re.search(r'^\s*MODE_FILTER\s*=\s*[\"\']?(?:hostlist|autohostlist)[\"\']?\s*(?:#.*)?$',text,re.M) or '<HOSTLIST>' not in text:
-        raise ValueError('Нестандартный config: нужны MODE_FILTER=hostlist/autohostlist и <HOSTLIST>. Автоматически shell/Lua не переписываем.')
-    path=root/'ipset/zapret-hosts-user.txt'
+    with config.open('rb') as f:config_raw=f.read(1024*1024+1)
+    if len(config_raw)>1024*1024:raise ValueError('Слишком большой config')
+    text=config_raw.decode('utf-8-sig')
+    base=standard_hostlist_base(text,root)
+    path=base/'zapret-hosts-user.txt'
     if Path(str(path)+'.gz').exists():raise ValueError('Найден .gz hostlist: измените его штатными средствами Zapret, чтобы не оставить конфликтующие копии')
     core.safe_write_path(path)
     with path.open('rb') as f:raw=f.read(4*1024*1024+1)
@@ -113,13 +170,15 @@ def hostlist_plan(root):
     data=('\n'.join(core.DOMAINS)+'\n'+'\n'.join(other)+'\n').encode()
     excludes=[]
     for name in ('zapret-hosts-user-exclude.txt','zapret-hosts-user-exclude.txt.gz'):
-        if (root/'ipset'/name).exists():excludes.append(str(root/'ipset'/name))
-    return dict(path=str(path),expected=core.digest(raw),config=str(config),config_hash=core.digest(config.read_bytes()),data=data,excludes=excludes,mode=stat.S_IMODE(path.stat().st_mode))
+        if (base/name).exists():excludes.append(str(base/name))
+    return dict(path=str(path),expected=core.digest(raw),config=str(config),config_hash=core.digest(config_raw),data=data,excludes=excludes,mode=stat.S_IMODE(path.stat().st_mode))
 
 def apply_hostlist(plan):
     path=core.safe_write_path(plan['path'])
     if core.digest(Path(plan['config']).read_bytes())!=plan['config_hash']:raise ValueError('config изменился; перечитайте план')
     with core.lock_file(path):
+        if core.digest(Path(plan['config']).read_bytes())!=plan['config_hash']:
+            raise ValueError('config изменился; перечитайте план')
         raw=path.read_bytes()
         if core.digest(raw)!=plan['expected']:raise ValueError('Hostlist изменился')
         backup=Path(str(path)+'.backup-'+str(time.time_ns())+'-'+uuid.uuid4().hex[:8])

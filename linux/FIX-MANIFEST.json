@@ -1,0 +1,44 @@
+{
+  "kind": "local-source-fixes-not-release",
+  "python_tested": "3.13.14",
+  "tests": 48,
+  "native_windows_tested": false,
+  "entries": [
+    {
+      "path": "LINUX-FIXES.txt",
+      "sha256": "9abe43cb511ffa4ddea9f4278ec78f2e9f2da89339dc0c3811405e40d6595dc8"
+    },
+    {
+      "path": "linux-final-check.log",
+      "sha256": "97b9fbbfaec33ed9dd0b0809bf4302d28ce0ec91117c9cb8dc1ac35489669e96"
+    },
+    {
+      "path": "linux/README.md",
+      "sha256": "58e134018ab8e6509748f13eff574b52ed9a7c1712d7e5d92e7ddec555afc2e3"
+    },
+    {
+      "path": "linux/agfixer_linux.py",
+      "sha256": "5e2367f639521b9711b9a2c3ad21a73643bf723cd47a8ccb9ea88088d79d71da"
+    },
+    {
+      "path": "linux/core.py",
+      "sha256": "d39941937c5e6a526d2529c67f8ae9c1da6c62c3ccb6b7624918f122280ba0a6"
+    },
+    {
+      "path": "linux/run.sh",
+      "sha256": "8d556f08208d86016e5449203717a4abf3ef7acb26210b554df1ab1b1d841701"
+    },
+    {
+      "path": "linux/tests/test_safety.py",
+      "sha256": "8359e29e9db56ca7bf38d94ab840d0e81e8b285030538c4cdc83a585cebc6445"
+    },
+    {
+      "path": "linux/tests/test_zapret_regressions.py",
+      "sha256": "7d09135a6737777f5490685540ec24925595b47356acab4c0fdc147922bb2251"
+    },
+    {
+      "path": "linux/zapret_support.py",
+      "sha256": "b62c56af994c5ce6a864593115f075779a6b3dbfdfd1e857f2a30185760967e3"
+    }
+  ]
+}
